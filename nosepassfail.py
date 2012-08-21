@@ -1,3 +1,5 @@
+# This test sets pass/fail status, and retrieves the session ID, for each test.
+
 import unittest
 from selenium import webdriver
 from time import sleep
