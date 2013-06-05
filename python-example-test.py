@@ -6,9 +6,9 @@ from selenium import webdriver
 class GLaDOS(unittest.TestCase):
 
     def setUp(self):
-        desired_capabilities = webdriver.DesiredCapabilities.INTERNETEXPLORER
-        desired_capabilities['version'] = '9'
-        desired_capabilities['platform'] = 'Windows 2008'
+        desired_capabilities = webdriver.DesiredCapabilities.FIREFOX
+        desired_capabilities['version'] = '21'
+        desired_capabilities['platform'] = 'Windows 7'
         desired_capabilities['name'] = 'Useful Python commands'
         
         # http://saucelabs.com/docs/additional-config
@@ -30,6 +30,7 @@ class GLaDOS(unittest.TestCase):
         self.driver.get('http://saucelabs.com/test/guinea-pig')
         self.assertTrue("I am a page title" in self.driver.title)
         self.driver.find_element_by_link_text('i am a link').click()
+        self.driver.execute_script("sauce:context=run away, run away!")
         self.driver.back()
 
         # Interact with inputs
